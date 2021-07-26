@@ -70,7 +70,7 @@ exports.createProxyController = function createProxyController(config) {
         method: req.method,
       };
 
-      if (req.method === 'POST') { // req.method is always uppercase
+      if (['POST', 'PUT', 'PATCH'].includes(req.method)) { // req.method is always uppercase
         payload['data'] = JSON.stringify(req.body);
       }
 
